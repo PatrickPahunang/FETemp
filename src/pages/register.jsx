@@ -13,6 +13,10 @@ const Register = () => {
     first_name: '',
     last_name: '',
   });
+
+const [errorMessage, setErrorMessage] = useState('');
+
+
 Modal.setAppElement('#root');
 
 const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +45,7 @@ const handleSubmit = (event) => {
     form.append('email', formData.email);
     form.append('username', formData.username);
     form.append('password', formData.password);
+    form.append('password2', formData.password2);
     form.append('first_name', formData.first_name);
     form.append('last_name', formData.last_name);
 
@@ -54,6 +59,7 @@ const handleSubmit = (event) => {
             email: '',
             username: '',
             password: '',
+            password2: '',
             first_name: '',
             last_name: '',
             });
@@ -63,6 +69,13 @@ const handleSubmit = (event) => {
       })
       .catch(error => {
         // Handle the error
+        if (error.response && error.response.data) {
+          const responseMessage = error.response.data.message;
+          const formattedMessage = responseMessage.replace("[", "").replace("]", "").replace("'", "").replace("'", "");
+          setErrorMessage(formattedMessage);
+        } else {
+          setErrorMessage('An error occurred during registration');
+        }
         console.error(error);
           });
    
@@ -72,7 +85,7 @@ const handleSubmit = (event) => {
     
   // Perform your form submission logic here
 };
-  
+
 
 
   return (
@@ -106,52 +119,72 @@ const handleSubmit = (event) => {
 
         <form onSubmit={handleSubmit}>
         
-        <div className=' rounded-xl flex flex-col h-max py-10  w-96 bg-slate-700 text-white justify-center items-center text-center'>
+        <div className=' rounded-xl flex flex-col h-max py-10 px-32 bg-slate-700 text-white justify-center items-center text-center'>
         <h1 className='text-5xl my-4 mb-10'>REGISTER</h1>
+        {errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}
         <label>
             Username<br/>
             <input
-             className='text-black text-center py-2 px-10 rounded-md'
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
+              required
               
             />
+          
           </label>
           
           <label>
             Password<br/>
             <input
-             className='text-black text-center py-2 px-10 rounded-md'
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
+              required
             
             />
           </label>
 
           <label>
+            Re-Type Password<br/>
+            <input
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
+              type="password"
+              name="password2"
+              value={formData.password2}
+              onChange={handleChange}
+              required
+            
+            />
+          </label>
+      
+
+          <label>
             Email<br/>
             <input
-             className='text-black text-center py-2 px-10 rounded-md'
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
               type="text"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
               
             />
           </label>
-
+          
           <label>
             First Name<br/>
             <input
-             className='text-black text-center py-2 px-10 rounded-md'
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
               type="text"
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
+              required
             
             />
           </label>
@@ -159,11 +192,12 @@ const handleSubmit = (event) => {
           <label>
             Last Name<br/>
             <input
-             className='text-black text-center py-2 px-10 rounded-md'
+             className='text-black text-center py-2 my-1 px-10 rounded-md'
               type="text"
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
+              required
             
             />
           </label>
