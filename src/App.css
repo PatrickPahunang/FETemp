@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+@font-face {
+  font-family: Gilroy;
+  src: url(./Gilroy-Light.otf);
+}
+
 .App {
   text-align: center;
+  font-family: 'Gilroy';
+  overflow-x: hidden;
 }
 
 .App-logo {

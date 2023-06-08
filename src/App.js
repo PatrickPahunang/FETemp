@@ -6,9 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -19,7 +17,10 @@ function App() {
 
           
         </a>
-        <span className='text-green-500'>TEST TEXT</span>
+        <div className='space-x-5'>
+          <a href="register"><button className='font-bold py-2 px-4 bg-yellow-50 border-1 border-white transition duration-500 hover:bg-yellow-100 text-black rounded-md shadow-2xl text-lg'>Register</button></a>
+          <a href="login"><button className='font-bold py-2 px-8 bg-green-50 border-1 border-white transition duration-500 hover:bg-green-200 text-black rounded-md shadow-2xl text-lg'>Login</button></a>
+        </div>
       </header>
     </div>
   );
