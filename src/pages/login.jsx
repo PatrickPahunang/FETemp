@@ -7,13 +7,15 @@ import logo from '../logo.svg'
 
 
 
+
+
 const Register = () => {
     const [formData, setFormData] = useState({
     username: '',
     password: '',
+    logintoken:'',
   });
 
-  
 const [errorMessage, setErrorMessage] = useState('Account Login');
 
 
@@ -40,6 +42,8 @@ const handleSubmit = (event) => {
     axios.post('http://127.0.0.1:8000/myapp/login/api/',form)
       .then(response => {
           const res = response.status;
+          const token = response.data.token;
+          console.log(localStorage.getItem('token', token));
           console.log(res)
           if (res === 200) {
             setIsError(false)

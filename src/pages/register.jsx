@@ -116,7 +116,7 @@ const handleSubmit = (event) => {
 
         <form onSubmit={handleSubmit}>
         
-        <div className='border-4 border-white rounded-xl flex flex-col h-max py-10 w-110  bg-yellow-50 text-black justify-center items-center text-center'>
+        <div className='border-4 border-white rounded-xl flex flex-col h-max py-10 w-110  bg-yellow-50 shadow-2xl text-black justify-center items-center text-center'>
         <h1 data-aos="fade-out" data-aos-duration="1000" className='text-5xl  font-bold'>REGISTER</h1>
         <div className='h-5'>{errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}</div>
        
