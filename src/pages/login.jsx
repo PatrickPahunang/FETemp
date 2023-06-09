@@ -9,6 +9,7 @@ import logo from '../logo.svg'
 
 
 
+
 const Register = () => {
     const [formData, setFormData] = useState({
     username: '',
@@ -42,19 +43,21 @@ const handleSubmit = (event) => {
     axios.post('http://127.0.0.1:8000/myapp/login/api/',form)
       .then(response => {
           const res = response.status;
-          const token = response.data.token;
-          console.log(localStorage.getItem('token', token));
+          const token = response.token;
           console.log(res)
+          
           if (res === 200) {
+            localStorage.setItem('token',token);
             setIsError(false)
             setErrorMessage('Login Successful');
+            window.location.href = '/dashboard';
             setTimeout(() => {
                 setFormData({
                 username: '',
                 password: '',
                 });
              }, 1000);
-    
+             
             }
           else
              console.error();
@@ -131,7 +134,7 @@ const handleSubmit = (event) => {
           <button type="submit" 
               data-aos="fade"
               data-aos-duration="1000"
-              data-aos-delay="400" className='hover:bg-blue-500 transition duration-500  py-2 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>LOGIN</button>
+              data-aos-delay="400" className='hover:bg-blue-500 transition duration-1000  py-2 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>LOGIN</button>
         </div>
         </form>
     </div>
