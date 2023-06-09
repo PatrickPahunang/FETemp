@@ -2,12 +2,12 @@ import React from 'react';
 
 
 
-const Login = () => {
+const Dashboard = () => {
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
-      <h1>WELCOME</h1>
+      <h1>WELCOME TO DASHBOARD</h1>
     </div>
   );
 };
 
-export default Login;
+export default Dashboard;

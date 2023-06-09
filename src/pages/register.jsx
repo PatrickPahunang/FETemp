@@ -20,7 +20,6 @@ const [errorMessage, setErrorMessage] = useState('');
 Modal.setAppElement('#root');
 
 const [isOpen, setIsOpen] = useState(false);
-
   const openModal = () => {
     setIsOpen(true);
   };
@@ -28,9 +27,6 @@ const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => {
     setIsOpen(false);
   };
-
-
-  
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -54,6 +50,7 @@ const handleSubmit = (event) => {
         // Handle the response data
         console.log(response.data);
         openModal();
+        setErrorMessage('');
         setTimeout(() => {
             setFormData({
             email: '',
@@ -90,7 +87,7 @@ const handleSubmit = (event) => {
 
   return (
     
-    <div className='flex flex-col justify-center items-center w-screen h-screen bg-blue-100' data-aos="fade" data-aos-duration="500">
+    <div className='flex flex-col justify-center items-center w-screen h-screen bg-slate-900' data-aos="fade" data-aos-duration="500">
 
     <Modal
         isOpen={isOpen}
@@ -119,92 +116,93 @@ const handleSubmit = (event) => {
 
         <form onSubmit={handleSubmit}>
         
-        <div className=' rounded-xl flex flex-col h-max py-10 px-32 bg-slate-700 text-white justify-center items-center text-center'>
-        <h1 className='text-5xl my-4 mb-10'>REGISTER</h1>
-        {errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}
-        <label>
-            Username<br/>
+        <div className='border-4 border-white rounded-xl flex flex-col h-max py-10 px-20 bg-yellow-50 text-black justify-center items-center text-center'>
+        <h1 className='text-5xl  font-bold'>REGISTER</h1>
+        <div className='h-5'>{errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}</div>
+       
+            <br/>
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="text"
               name="username"
+              placeholder='Username'
               value={formData.username}
               onChange={handleChange}
               required
               
             />
           
-          </label>
+      
           
-          <label>
-            Password<br/>
+       
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="password"
               name="password"
+              placeholder='Password'
               value={formData.password}
               onChange={handleChange}
               required
             
             />
-          </label>
+      
 
-          <label>
-            Re-Type Password<br/>
+     
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="password"
               name="password2"
+              placeholder='Re-Type Password'
               value={formData.password2}
               onChange={handleChange}
               required
             
             />
-          </label>
+      
       
 
-          <label>
-            Email<br/>
+         
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="text"
               name="email"
+              placeholder='Email'
               value={formData.email}
               onChange={handleChange}
               required
               
             />
-          </label>
+         
           
-          <label>
-            First Name<br/>
+    
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="text"
               name="first_name"
+              placeholder='First Name'
               value={formData.first_name}
               onChange={handleChange}
               required
             
             />
-          </label>
+       
 
-          <label>
-            Last Name<br/>
+    
             <input
-             className='text-black text-center py-2 my-1 px-10 rounded-md'
+             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
               type="text"
               name="last_name"
+              placeholder='Last Name'
               value={formData.last_name}
               onChange={handleChange}
               required
             
             />
-          </label>
+          
 
 
 
-          <button type="submit" className='hover:bg-blue-700 transition duration-500 hover:text-white py-3 text-black  rounded-md px-24 my-4 border-1 border-black bg-blue-300'>Submit</button>
+          <button type="submit" className='hover:bg-blue-500 transition duration-500  py-3 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>Register</button>
         </div>
         </form>
     </div>
