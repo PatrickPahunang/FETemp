@@ -62,7 +62,7 @@ const handleSubmit = (event) => {
             });
         closeModal();
         window.location.href = '/';
-         }, 2000);  
+         }, 2500);  
       })
       .catch(error => {
         // Handle the error
@@ -108,7 +108,7 @@ const handleSubmit = (event) => {
         },
   }}
       > 
-        <div className=' rounded-lg flex flex-col justify-center items-center w-full h-full bg-white'>
+        <div className=' rounded-lg flex flex-col justify-center items-center w-full h-full bg-white' data-aos="zoom-in" data-aos-duration="1000">
           <p className='text-center text-3xl text-green-700 '>Registered Successfully!</p>
           <p className='text-center text-base text-black '>You may now login!</p>
         </div>
@@ -116,8 +116,8 @@ const handleSubmit = (event) => {
 
         <form onSubmit={handleSubmit}>
         
-        <div className='border-4 border-white rounded-xl flex flex-col h-max py-10 px-20 bg-yellow-50 text-black justify-center items-center text-center'>
-        <h1 className='text-5xl  font-bold'>REGISTER</h1>
+        <div className='border-4 border-white rounded-xl flex flex-col h-max py-10 w-110  bg-yellow-50 text-black justify-center items-center text-center'>
+        <h1 data-aos="fade-out" data-aos-duration="1000" className='text-5xl  font-bold'>REGISTER</h1>
         <div className='h-5'>{errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}</div>
        
             <br/>
@@ -129,6 +129,7 @@ const handleSubmit = (event) => {
               value={formData.username}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="50"
               
             />
           
@@ -143,6 +144,7 @@ const handleSubmit = (event) => {
               value={formData.password}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="100"
             
             />
       
@@ -156,6 +158,7 @@ const handleSubmit = (event) => {
               value={formData.password2}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="150"
             
             />
       
@@ -170,6 +173,7 @@ const handleSubmit = (event) => {
               value={formData.email}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="200"
               
             />
          
@@ -183,6 +187,7 @@ const handleSubmit = (event) => {
               value={formData.first_name}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="250"
             
             />
        
@@ -196,13 +201,14 @@ const handleSubmit = (event) => {
               value={formData.last_name}
               onChange={handleChange}
               required
+              data-aos="fade" data-aos-duration="1000" data-aos-delay="300"
             
             />
           
 
 
 
-          <button type="submit" className='hover:bg-blue-500 transition duration-500  py-3 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>Register</button>
+          <button data-aos="fade" data-aos-duration="1000" data-aos-delay="350" type="submit" className='hover:bg-blue-500 transition duration-500  py-3 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>Register</button>
         </div>
         </form>
     </div>

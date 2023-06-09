@@ -10,7 +10,7 @@ const Landing = () => {
         
       <div className="w-screen min-h-screen flex justify-center items-center bg-slate-900 flex-col">
         
-        <span className='my-5 text-cyan-300 text-2xl'>Welcome to <br/><span className='text-5xl'>Company XYZ</span></span>
+        <span data-aos="fade-down" data-aos-duration="700" className=' text-cyan-300 text-2xl'>Welcome to <br/></span><span  data-aos="fade-down" data-aos-duration="1000"  className='text-5xl mb-5 text-cyan-300 '>Company XYZ</span>
 
         
         <div className='flex flex-col'>

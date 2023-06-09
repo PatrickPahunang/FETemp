@@ -85,9 +85,12 @@ const handleSubmit = (event) => {
         
         
         <div className='border-4 border-white rounded-xl flex flex-col h-max pb-10 pt-8 px-20 bg-yellow-50 text-black justify-center items-center text-center'>
-        <img src={logo} alt='logo' className="h-40" />
+        <img src={logo} alt='logo' className="h-40"  
+              data-aos="zoom-out"
+              data-aos-duration="1000"
+               />
         
-        <div className='h-10 -translate-y-2'>{errorMessage && <p className={isError ? 'text-red-500 text-2xl':'text-slate-900 text-2xl'}>{errorMessage}</p>}</div>
+        <div data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" className='h-10 -translate-y-2'>{errorMessage && <p className={isError ? 'text-red-500 text-2xl':'text-slate-900 text-2xl'}>{errorMessage}</p>}</div>
     
       
             <input
@@ -98,6 +101,9 @@ const handleSubmit = (event) => {
               value={formData.username}
               onChange={handleChange}
               required
+              data-aos="fade"
+              data-aos-duration="1000"
+              data-aos-delay="200"
               
             />
           
@@ -111,11 +117,17 @@ const handleSubmit = (event) => {
               value={formData.password}
               onChange={handleChange}
               required
+              data-aos="fade"
+              data-aos-duration="1000"
+              data-aos-delay="300"
             
             />
    
 
-          <button type="submit" className='hover:bg-blue-500 transition duration-500  py-2 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>LOGIN</button>
+          <button type="submit" 
+              data-aos="fade"
+              data-aos-duration="1000"
+              data-aos-delay="400" className='hover:bg-blue-500 transition duration-500  py-2 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>LOGIN</button>
         </div>
         </form>
     </div>
