@@ -18,8 +18,6 @@ const Register = () => {
   });
 
 const [errorMessage, setErrorMessage] = useState('Account Login');
-
-
 const [isError, setIsError] = useState(false);
 
 
@@ -44,13 +42,18 @@ const handleSubmit = (event) => {
       .then(response => {
           const res = response.status;
           const token = response.token;
-          console.log(res)
+          console.log(res);
           
           if (res === 200) {
             localStorage.setItem('token',token);
             setIsError(false)
             setErrorMessage('Login Successful');
-            window.location.href = '/dashboard';
+            console.log(res); 
+            console.log(response); 
+            let userId = response.data.data.id;
+            window.location.href = '/dashboard/' + userId;
+
+            
             setTimeout(() => {
                 setFormData({
                 username: '',
