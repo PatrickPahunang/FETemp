@@ -209,7 +209,7 @@ const handleSubmit = (event) => {
 
 
 
-          <button data-aos="fade" data-aos-duration="1000" data-aos-delay="350" type="submit" className='hover:bg-blue-500 transition duration-500  py-3 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>Register</button>
+          <button data-aos="fade" data-aos-duration="1000" data-aos-delay="350" type="submit" className='hover:bg-blue-500 transition duration-500  py-3 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>REGISTER</button>
         </div>
         </form>
     </div>
