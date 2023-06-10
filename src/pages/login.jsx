@@ -94,13 +94,13 @@ const handleSubmit = (event) => {
         <form onSubmit={handleSubmit}>
         
         
-        <div className='border-4 border-white rounded-xl flex flex-col h-max pb-10 pt-8 px-20 bg-yellow-50 text-black justify-center items-center text-center'>
+        <div className='border-4 border-white rounded-md flex flex-col h-max pb-10 pt-8 px-20 bg-yellow-50 text-black justify-center items-center text-center'>
         <a href='/'><img src={logo} alt='logo' className="h-40 App-logo"  
               data-aos="zoom-out"
               data-aos-duration="1000"
                /></a>
         
-        <div data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" className='h-10 -translate-y-2'>{errorMessage && <p className={isError ? 'text-red-500 text-2xl':'text-slate-900 text-2xl'}>{errorMessage}</p>}</div>
+        <div data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" className='h-10 -translate-y-2 font-bold'>{errorMessage && <p className={isError ? 'text-red-500 text-2xl':'text-slate-900 text-2xl'}>{errorMessage}</p>}</div>
     
       
             <input
