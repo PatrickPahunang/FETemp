@@ -10,6 +10,7 @@ const Register = () => {
     email: '',
     username: '',
     password: '',
+    password2: '',
     first_name: '',
     last_name: '',
   });
@@ -118,7 +119,7 @@ const handleSubmit = (event) => {
         
         <div className='border-4 border-white rounded-md flex flex-col h-max py-10 w-110  bg-yellow-50 shadow-2xl text-black justify-center items-center text-center'>
         <h1 data-aos="fade-out" data-aos-duration="1000" className='text-5xl  font-bold'>SIGN UP</h1>
-        <div className='h-5'>{errorMessage && <p className="text-red-500 text-2xl">{errorMessage}</p>}</div>
+        <div className='h-5'>{errorMessage && <p className="text-red-500 text-2xl font-bold">{errorMessage}</p>}</div>
        
             <br/>
             <input
