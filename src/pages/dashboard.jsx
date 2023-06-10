@@ -18,7 +18,12 @@ const id = parts[2];
 let userId = parseInt(id)
 
 
-axios.get(`http://127.0.0.1:8000/myapp/get_user/api/${userId}` , { withCredentials: true })
+axios.get(`http://127.0.0.1:8000/myapp/get_user/api/${userId}` , {
+  headers: {
+    'Access-Control-Allow-Origin': 'http://127.0.0.1:3000/'
+  }
+})
+
   .then(response => {
     console.log(response);
   })
@@ -27,8 +32,8 @@ axios.get(`http://127.0.0.1:8000/myapp/get_user/api/${userId}` , { withCredentia
     console.error(error);
   });
 
-    
 
+  
 
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
