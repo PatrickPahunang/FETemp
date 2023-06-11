@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import '../App.css';
-import logo from '../logo.svg';
+
+import dp from '../assets/dp.jpg'
 import { useEffect , useState } from 'react';
 import Navbar from '../components/navbar';
 
@@ -55,11 +56,11 @@ console.log(userData);
 
 
   return (
-    <div className='w-screen h-screen flex flex-col justify-center items-center bg-gray-200 text-slate-900'>
+    <div className='w-screen h-screen flex flex-col justify-center items-center bg-yellow-50 text-slate-900'>
       <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
       
       <br />
-      <Navbar username={username} image={logo} />
+      <Navbar username={username} image={dp} />
       
     
 
