@@ -5,6 +5,8 @@ import '../App.css';
 import dp from '../assets/dp.jpg'
 import { useEffect , useState } from 'react';
 import Navbar from '../components/navbar';
+import samplesvg from '../assets/webstore.svg'
+import samplesvg2 from '../assets/webstore2.svg'
 
 
 
@@ -57,11 +59,21 @@ console.log(userData);
 
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center bg-yellow-50 text-slate-900'>
-      
-    
-      <Navbar username={username} image={dp} />
-      <div className='w-screen h-1/4 bg-red-500'>
 
+       
+      
+      <Navbar username={username} image={dp} />
+      <div className='w-screen flex xl:h-1/5 h-40 bg-gray-300 xl:px-0 pl-20'>
+        <div className='w-screen flex justify-center items-center xl:ml-60'>
+          <img src={samplesvg2} alt='samplesvg' className='xl:h-60 h-20'/>
+        </div>
+        <div className='w-screen flex justify-end items-center'>
+          <img src={samplesvg} alt='samplesvg' className='xl:h-60 h-20'/>
+        </div>
+        
+
+        
+       
       </div>
       <div className='h-screen w-screen flex justify-center items-center'>
         <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
