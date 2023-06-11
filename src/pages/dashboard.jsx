@@ -75,8 +75,8 @@ console.log(userData);
         
        
       </div>
-      <div className='h-screen w-screen flex justify-center items-center'>
-        <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
+      <div className='h-screen w-screen bg-white xl:mt-20 flex justify-center items-center'>
+        <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD CONTENTS</h1>
       </div>
       
     
