@@ -24,7 +24,7 @@ return (
         <div className='mb-10 flex justify-center flex-col items-center'>
             <div className='text-3xl mb-8 font-bold'> Company XYZ</div>
             <div className=' bg-white rounded-full h-32 w-32 object-cover flex justify-center items-center mb-1'> <img src={image} alt="Display" className='object-cover object-top rounded-full h-32 w-32' /> </div>
-            <div className=''>Welcome back,</div>
+            <div className='text-sm'>Welcome back,</div>
             <div className=' text-2xl font-bold'>{username}</div>
         </div>
 

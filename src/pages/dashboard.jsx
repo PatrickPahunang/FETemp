@@ -57,10 +57,15 @@ console.log(userData);
 
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center bg-yellow-50 text-slate-900'>
-      <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
       
-      <br />
+    
       <Navbar username={username} image={dp} />
+      <div className='w-screen h-1/4 bg-red-500'>
+
+      </div>
+      <div className='h-screen w-screen flex justify-center items-center'>
+        <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
+      </div>
       
     
 
