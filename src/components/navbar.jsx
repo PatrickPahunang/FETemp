@@ -39,7 +39,21 @@ return (
         <div className='flex flex-col justify-start items-center h-full pb-32 pt-10' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
           <div className='mb-10 flex justify-center flex-col items-center'>
               <div className='text-3xl mb-8 font-bold'> Company XYZ</div>
-              <div className=' bg-white rounded-full h-32 w-32 object-cover flex justify-center items-center mb-1'> <img src={image} alt="Display" className='object-cover object-top rounded-full h-32 w-32' /> </div>
+
+              <div className='bg-white rounded-full h-32 w-32 object-cover flex justify-center items-center mb-1'>
+                {image ? (
+                  <div>
+                    <img src={image} alt="Display" className='object-cover object-top rounded-full h-32 w-32' />
+                  </div>
+                ) : (
+                  <div>
+                    <FontAwesomeIcon icon={faUser} className='h-16 text-slate-900' />
+                  </div>
+                )}
+              </div>
+
+
+
               <div className='text-sm'>Welcome back,</div>
               <div className=' text-2xl font-bold'>{username}</div>
           </div>
