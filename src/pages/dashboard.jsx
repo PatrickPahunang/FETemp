@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import '../App.css';
+import logo from '../logo.svg';
 import { useEffect , useState } from 'react';
+import Navbar from '../components/navbar';
 
 
-const logout = () => {
-  localStorage.removeItem('token');
-  window.location.reload();
-}
+
 
 
 
@@ -49,20 +49,25 @@ useEffect(() => {
   fetchUserData();
 }, [userId]);
 
+let username = userData.first_name + ' ' + userData.last_name;
 
 console.log(userData);
 
 
   return (
-    <div className='w-screen h-screen flex flex-col justify-center items-center'>
-      <h3>Hello {userData.first_name} {userData.last_name} </h3>
-      <h1>Welcome to your Dashboard!</h1>
+    <div className='w-screen h-screen flex flex-col justify-center items-center bg-gray-200 text-slate-900'>
+      <h1 data-aos="fade-down" data-aos-duration="1000" >DASHBOARD CONTENTS</h1>
+      
+      <br />
+      <Navbar username={username} image={logo} />
+      
+    
 
       <div>
 
       </div>
 
-      <button onClick={logout} className=' py-2 w-24 bg-red-500 text-white text-sm border-1 border-white transition duration-500 hover:bg-red-900 rounded-md shadow-2xl' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" >LOGOUT</button>
+     
     </div>
   );
 };

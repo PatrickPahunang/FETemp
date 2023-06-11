@@ -4,6 +4,7 @@ import Register from './pages/register';
 import Login from './pages/login';
 import Landing from './pages/landingpage';
 import Dashboard from './pages/dashboard'
+
 //import PrivateRoute from './components/privateroute';
 
 
