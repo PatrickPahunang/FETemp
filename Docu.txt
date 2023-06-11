@@ -1,0 +1,1 @@
+- CORS ACCESS-CONTROL-CROSS-ORIGIN ERROR FIXED puting ("proxy": "http://localhost:3000") on the python/backend package.json

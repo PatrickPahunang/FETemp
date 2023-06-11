@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import axios from 'axios';
 import logo from '../logo.svg'
-
+import BASE_URL from '../baseurl';
 
 
 
@@ -38,7 +38,7 @@ const handleSubmit = (event) => {
     form.append('password', formData.password);
 
    
-    axios.post('http://127.0.0.1:8000/myapp/login/api/',form)
+    axios.post(BASE_URL + '/myapp/login/api/',form)
       .then(response => {
           const res = response.status;
           const token = response.token;

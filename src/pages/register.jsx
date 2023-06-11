@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
+import BASE_URL from '../baseurl';
 
 
 
@@ -46,7 +47,7 @@ const handleSubmit = (event) => {
     form.append('first_name', formData.first_name);
     form.append('last_name', formData.last_name);
 
-    axios.post('http://127.0.0.1:8000/myapp/users/create/',form)
+    axios.post(BASE_URL + '/myapp/users/create/',form)
       .then(response => {
         // Handle the response data
         console.log(response.data);

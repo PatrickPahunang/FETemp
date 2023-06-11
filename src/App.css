@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+html {
+  overflow-y:visible;
+}
 
 @font-face {
   font-family: Gilroy;
