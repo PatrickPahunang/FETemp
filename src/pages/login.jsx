@@ -52,6 +52,7 @@ const handleSubmit = (event) => {
             console.log(response); 
             let userId = response.data.data.id;
             window.location.href = '/dashboard/' + userId;
+            console.log(userId);
 
             
             setTimeout(() => {

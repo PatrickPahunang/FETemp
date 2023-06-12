@@ -19,8 +19,8 @@ const Landing = () => {
         
         <div className='flex flex-col'>
           <div className='flex justify-center items-center space-x-5'>
-          <a href='/register'><button className=' py-2 w-40 bg-yellow-50 border-1 border-white transition duration-500 hover:bg-yellow-100 text-black rounded-md shadow-2xl text-lg' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" >Sign Up</button></a>
-          <a href='/login'><button className=' py-2 w-40 bg-green-50 border-1 border-white transition duration-500 hover:bg-green-300 text-black rounded-md shadow-2xl text-lg' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" >Login</button></a>
+          <a href='/register'><button className=' font-bold py-2 w-40 bg-yellow-50 border-1 border-white transition duration-500 hover:bg-yellow-100 text-black rounded-md shadow-2xl text-lg' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" >SIGN UP</button></a>
+          <a href='/login'><button className=' font-bold py-2 w-40 bg-green-50 border-1 border-white transition duration-500 hover:bg-green-300 text-black rounded-md shadow-2xl text-lg' data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" >LOGIN</button></a>
           </div>
       
         </div>

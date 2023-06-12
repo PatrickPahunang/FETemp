@@ -19,7 +19,7 @@ const logout = () => {
 
 
 
-const Navbar = ({ username, image  }) => {
+const Navbar = ({ username, image , id }) => {
 
 const [isActive, setIsActive] = useState(false);
 const handleClick = () => {
@@ -27,17 +27,11 @@ const handleClick = () => {
 };
 
 useEffect(() => {
-  console.log(isActive);
 }, [isActive]);
-
-
-
-console.log(image);
-
 
   
 return (
-  <div className={'absolute h-14 block transition-all duration-500 ease-out bg-slate-900  xl:bg-transparent xl:top-20  top-10 left-0 xl:left-10 rounded-r-xl ' +  (isActive ? 'w-[335px]' : 'w-16')}  >
+  <div className={'absolute h-14 block transition-all duration-500 ease-out bg-slate-900 shadow-2xl  xl:bg-transparent xl:top-20  top-10 left-0 xl:left-10 rounded-r-xl ' +  (isActive ? 'w-[335px]' : 'w-16')}  >
     <button onClick={handleClick} className='absolute xl:hidden block right-4 top-3 '>{isActive ? <FontAwesomeIcon icon={faXmark} className='text-yellow-50 h-8'/> : <FontAwesomeIcon icon={faBars} className='text-yellow-50 h-8'/>}</button>
       <div className={'text-white absolute w-72 bg-slate-900 xl:flex xl:-mt-6 mt-0 h-max px-10 xl:rounded-3xl rounded-r-3xl shadow-2xl transition-all duration-500 ease-out ' + (isActive ? 'left-0' : '-left-80 xl:left-0 ')}>
         <div className='flex flex-col justify-start items-center h-full pb-32 pt-10' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
@@ -62,11 +56,13 @@ return (
               <div className=' text-2xl font-bold'>{username}</div>
           </div>
 
-              <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
+              <a href={'/dashboard/'+id}>
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
                   <div className="squircle flex rounded-2xl my-1  border-2 hover:border-2 hover:translate-x-3 border-yellow-50 cursor-pointer hover:bg-yellow-50 hover:text-slate-900 transition duration-500" >
                     <FontAwesomeIcon icon={faHouse} className='text-slate-900  transition duration-400  bg-yellow-50  border-2 border-yellow-50' /> <div className='flex justify-start ml-4 items-center hover:text-slate-900  text-yellow-50  w-24'>Home</div>
                   </div>
-              </div>
+                </div>
+              </a>
 
               <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="550">
                   <div className="squircle flex rounded-2xl my-1  border-2 hover:border-2 hover:translate-x-3 border-yellow-50 cursor-pointer hover:bg-yellow-50 hover:text-slate-900 transition duration-500" >

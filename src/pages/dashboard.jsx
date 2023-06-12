@@ -66,14 +66,9 @@ useEffect(() => {
 
 let username = userData.first_name + ' ' + userData.last_name;
 
-console.log(userData);
-
   return (
     <div className='w-screen h-max overflow-y-scroll flex flex-col justify-center items-center bg-yellow-50 text-slate-900 overflow-x-hidden '>
-
-       
-      
-      <Navbar username={username} image={userData.profile_picture} />
+      <Navbar username={username} image={userData.profile_picture} id={userData.id} />
       
       <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20'>
         <div className='w-screen flex justify-center items-center xl:ml-60'>
@@ -84,31 +79,14 @@ console.log(userData);
         </div>
       </div>
 
-
       <div className='h-screen w-screen  flex justify-center '>
-        <div className=' xl:w-1/5 w-0 h-screen '>
-          test
-        </div>
-        <div className='flex justify-center items-center text-center xl:w-4/5 w-screen xl:mx-10 xl:h-128 rounded-b-2xl bg-white shadow-2xl '>
+          <div className=' xl:w-1/6 w-0 h-screen '>
 
-
-
-
-
-
-          <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD CONTENTS</h1>
-          
-
-        </div>
+          </div>
+          <div className='flex justify-center items-center text-center xl:w-4/5 w-screen xl:mx-10 xl:h-128 rounded-b-2xl bg-white shadow-2xl '>
+            <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD CONTENTS</h1>
+          </div>
       </div>
-      
-    
-
-      <div>
-
-      </div>
-
-     
     </div>
   );
 };
