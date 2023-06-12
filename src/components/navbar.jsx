@@ -6,7 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-
+import BASE_URL from '../baseurl';
 
 
 library.add(faHouse,faUser,faGear,faXmark,faBars);
@@ -31,6 +31,10 @@ useEffect(() => {
 }, [isActive]);
 
 
+
+console.log(image);
+
+
   
 return (
   <div className={'absolute h-14 block transition-all duration-500 ease-out bg-slate-900  xl:bg-transparent xl:top-20  top-10 left-0 xl:left-10 rounded-r-xl ' +  (isActive ? 'w-[335px]' : 'w-16')}  >
@@ -43,7 +47,7 @@ return (
               <div className='bg-white rounded-full h-32 w-32 object-cover flex justify-center items-center mb-1'>
                 {image ? (
                   <div>
-                    <img src={image} alt="Display" className='object-cover object-top rounded-full h-32 w-32' />
+                    <img src={BASE_URL+image} alt="Display" className='object-cover object-top rounded-full h-32 w-32' />
                   </div>
                 ) : (
                   <div>

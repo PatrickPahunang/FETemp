@@ -15,12 +15,12 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 
+
 library.add(faUser);
 
 
-
-
 const Dashboard = () => {
+
 
 const [userData, setUserData] = useState({
   id:'',
@@ -51,7 +51,7 @@ useEffect(() => {
         last_name: response.data.last_name,
         profile_picture:response.data.profile_picture,
       }));
-     
+      
       
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -59,9 +59,10 @@ useEffect(() => {
     
     
   };
-
+  
   fetchUserData();
 }, [userId]);
+
 
 let username = userData.first_name + ' ' + userData.last_name;
 
@@ -95,7 +96,7 @@ console.log(userData);
 
 
 
-          <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD CONTENTS <FontAwesomeIcon icon={faUser} className='text-slate-900' /></h1>
+          <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD CONTENTS</h1>
           
 
         </div>
