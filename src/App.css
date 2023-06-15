@@ -12,6 +12,20 @@ html {
   src: url(./Gilroy-Light.otf);
 }
 
+.active {
+ /* Example style for the active route */
+  font-weight: bold;
+  background-color: rgb(254, 252, 232);
+  border-radius: 20px;
+  color:rgb(15, 24, 42)
+
+  
+
+}
+.active > p {
+  color:rgb(15, 24, 42)
+}
+
 .App {
   text-align: center;
   font-family: 'Gilroy';

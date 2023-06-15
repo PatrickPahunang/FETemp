@@ -10,7 +10,8 @@ import samplesvg2 from '../assets/webstore2.svg'
 import BASE_URL from '../baseurl';
 
 
-const Dashboard = () => {
+
+const Dashprofile = () => {
 
 const [userData, setUserData] = useState({
   id:'',
@@ -19,10 +20,6 @@ const [userData, setUserData] = useState({
   last_name: '',
   profile_picture:'',
 });
-
-
-
-
 
 
 
@@ -60,14 +57,11 @@ useEffect(() => {
   
 }, [userId]);
 
-
-
 let username = userData.first_name + ' ' + userData.last_name;
 
   return (
     <div className='w-screen h-max overflow-y-scroll flex flex-col justify-center items-center bg-yellow-50 text-slate-900 overflow-x-hidden '>
       <Navbar username={username} image={userData.profile_picture} id={userData.id} />
-      
       <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20' id='dashboard content'>
         <div className='w-screen flex justify-center items-center xl:ml-60'>
           <img src={samplesvg2} alt='samplesvg' className='xl:h-40 h-20'/>
@@ -82,11 +76,11 @@ let username = userData.first_name + ' ' + userData.last_name;
 
           </div>
           <div className='flex justify-center items-center text-center xl:w-4/5 w-screen xl:h-128 bg-white shadow-sm rounded-br-2xl '>
-            <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD HOME</h1>
+            <h1 className='text-5xl' data-aos="fade-down" data-aos-duration="1000">DASHBOARD PROFILE</h1>
           </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default Dashprofile;
