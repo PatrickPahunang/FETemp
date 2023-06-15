@@ -16,7 +16,7 @@ library.add(faHouse,faUser,faGear,faXmark,faBars);
 const logout = () => {
     localStorage.removeItem('canLogin');
     localStorage.removeItem('user');
-    window.location.reload();
+    window.location.href = '/login';
   }
 
 
