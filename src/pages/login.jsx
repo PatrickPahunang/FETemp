@@ -33,6 +33,8 @@ const handleSubmit = (event) => {
   const form = new FormData();
     form.append('username', formData.username);
     form.append('password', formData.password);
+    let dec1 = 'aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne'
+    let dec2 = 'P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne'
 
    
     axios.post(BASE_URL + '/myapp/login/api/',form)
@@ -48,7 +50,7 @@ const handleSubmit = (event) => {
               localStorage.setItem('canLogin',true)
             }
             let userId = response.data.data.id;
-            localStorage.setItem('id',userId)
+            localStorage.setItem('user',dec1 + userId + dec2 )
             setIsError(false)
             setErrorMessage('Login Successful');
             console.log(res); 

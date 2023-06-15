@@ -13,7 +13,6 @@ import BASE_URL from '../baseurl';
 
 const Dashboard = () => {
 
-
 const [userData, setUserData] = useState({
   id:'',
   email: '',
@@ -24,8 +23,14 @@ const [userData, setUserData] = useState({
 
 
 
-let userId = localStorage.getItem('id')
 
+
+
+
+
+let userId = localStorage.getItem('user')
+userId = userId.replace(/aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne/g, '');
+userId = userId.replace(/P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne/g, '');
 
 
 useEffect(() => {

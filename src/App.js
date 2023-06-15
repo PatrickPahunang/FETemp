@@ -20,7 +20,6 @@ function App() {
 
 
   const isAuthenticated = localStorage.getItem('canLogin') !== null || undefined;
-  console.log(isAuthenticated);
 
 
 
