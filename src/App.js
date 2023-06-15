@@ -18,9 +18,11 @@ import Dashboard from './pages/dashboard'
 
 function App() {
 
- 
-  const isAuthenticated = localStorage.getItem('token') !== null;
-  console.log(isAuthenticated)
+
+  const isAuthenticated = localStorage.getItem('canLogin') !== null || undefined;
+  console.log(isAuthenticated);
+
+
 
   return (
     <>
@@ -31,8 +33,7 @@ function App() {
         <Route exact path={''} element={<Landing />} />
         <Route exact path={'/register'} element={<Register />} />
         <Route exact path={'/login'} element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />}/>
-        <Route exact path={'/dashboard'} element={isAuthenticated ? <Login /> : <Navigate to="/login" />}/>
-        <Route exact path={'/dashboard/:userId'} element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}/>
+        <Route exact path={'/dashboard'} element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}/>
       </Routes>
     </Router>
     </div>

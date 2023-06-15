@@ -8,15 +8,7 @@ import Navbar from '../components/navbar';
 import samplesvg from '../assets/webstore.svg'
 import samplesvg2 from '../assets/webstore2.svg'
 import BASE_URL from '../baseurl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-
-
-
-
-library.add(faUser);
 
 
 const Dashboard = () => {
@@ -32,14 +24,13 @@ const [userData, setUserData] = useState({
 
 
 
-const pathname = window.location.pathname;
-const parts = pathname.split('/');
-const id = parts[2];
-let userId = parseInt(id)
+let userId = localStorage.getItem('id')
+
 
 
 useEffect(() => {
   const fetchUserData = async () => {
+
     
     try {
       const response = await axios.get(BASE_URL + '/myapp/get_user/api/' + userId , {mode:'cors'}  );

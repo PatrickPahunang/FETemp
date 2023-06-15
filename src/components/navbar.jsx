@@ -13,7 +13,8 @@ library.add(faHouse,faUser,faGear,faXmark,faBars);
 
 
 const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('canLogin');
+    localStorage.removeItem('id');
     window.location.reload();
   }
 
@@ -56,7 +57,7 @@ return (
               <div className=' text-2xl font-bold'>{username}</div>
           </div>
 
-              <a href={'/dashboard/'+id}>
+              <a href={'/dashboard'}>
                 <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
                   <div className="squircle flex rounded-2xl my-1  border-2 hover:border-2 hover:translate-x-3 border-yellow-50 cursor-pointer hover:bg-yellow-50 hover:text-slate-900 transition duration-500" >
                     <FontAwesomeIcon icon={faHouse} className='text-slate-900  transition duration-400  bg-yellow-50  border-2 border-yellow-50' /> <div className='flex justify-start ml-4 items-center hover:text-slate-900  text-yellow-50  w-24'>Home</div>

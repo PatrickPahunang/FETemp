@@ -7,9 +7,6 @@ import BASE_URL from '../baseurl';
 
 
 
-
-
-
 const Register = () => {
     const [formData, setFormData] = useState({
     username: '',
@@ -40,19 +37,24 @@ const handleSubmit = (event) => {
    
     axios.post(BASE_URL + '/myapp/login/api/',form)
       .then(response => {
-          const res = response.status;
-          const token = response.token;
+          const res = response;
+          console.log(res.token)
           console.log(res);
           
-          if (res === 200) {
-            localStorage.setItem('token',token);
+          
+          if (res.status === 200) {
+            let isTrue = res.data.token;
+            if (isTrue){
+              localStorage.setItem('canLogin',true)
+            }
+            let userId = response.data.data.id;
+            localStorage.setItem('id',userId)
             setIsError(false)
             setErrorMessage('Login Successful');
             console.log(res); 
             console.log(response); 
-            let userId = response.data.data.id;
-            window.location.href = '/dashboard/' + userId;
-            console.log(userId);
+            window.location.href = '/dashboard';
+      
 
             
             setTimeout(() => {
@@ -135,7 +137,7 @@ const handleSubmit = (event) => {
             />
    
 
-          <button type="submit" 
+          <button type="submit"
               data-aos="fade"
               data-aos-duration="1000"
               data-aos-delay="400" className='hover:bg-blue-500 transition duration-1000  py-2 text-white  rounded-md w-64 my-2 border-1 border-black bg-blue-900'>LOGIN</button>
