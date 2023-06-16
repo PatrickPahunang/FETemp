@@ -86,18 +86,38 @@ const handleImageChange = (event) => {
 
 };
 
+
+function convertImageToBase64(imageFile) {
+
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64Image = reader.result.split(',')[1];
+      resolve(base64Image);
+    };
+    reader.onerror = () => {
+      reject(new Error('Error occurred while reading the image.'));
+    };
+    reader.readAsDataURL(imageFile);
+  });
+
+}
+
+
 //let dec1 = 'aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne'
 //let dec2 = 'P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne'
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  const formData = new FormData();
-    formData.append('id',userData.id);
-    formData.append('first_name', userData.first_name);
-    formData.append('last_name', userData.last_name);
-    formData.append('profile_picture', newImage);
+  //const base64Image = imageDataToBase64(newImage);
+  const params = new URLSearchParams();
+    params.append('id',userData.id);
+    params.append('first_name', userData.first_name);
+    params.append('last_name', userData.last_name);
+    convertImageToBase64(userData.profile_picture);
+    params.append('profile_picture', convertImageToBase64(userData.profile_picture));
 
-    axios.patch(BASE_URL + '/myapp/update/api/' + userData.id+ '/' ,formData)
+    axios.patch(BASE_URL + '/myapp/update/api?'+ params)
       .then(response => {
           const res = response;
           console.log(res);
@@ -117,6 +137,8 @@ const handleSubmit = (event) => {
 
 
         };
+
+  
 
 
   return (
