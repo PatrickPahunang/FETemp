@@ -33,9 +33,9 @@ useEffect(() => {
 
   
 return (
-  <div className={'absolute h-14 block transition-all duration-500 ease-out bg-slate-900 shadow-2xl  xl:bg-transparent xl:top-20  top-10 left-0 xl:left-7 rounded-r-xl ' +  (isActive ? 'w-[335px]' : 'w-16')}  >
+  <div className={'absolute h-14 transition-all duration-500 ease-out bg-slate-900 shadow-2xl  xl:bg-transparent xl:top-20  top-10 left-0 xl:left-7 rounded-r-xl ' +  (isActive ? 'w-[335px]' : 'w-16')}  >
     <button onClick={handleClick} className='absolute xl:hidden block right-4 top-3 '>{isActive ? <FontAwesomeIcon icon={faXmark} className='text-yellow-50 h-8'/> : <FontAwesomeIcon icon={faBars} className='text-yellow-50 h-8'/>}</button>
-      <div className={'text-white absolute w-72 bg-slate-900 xl:flex xl:-mt-6 mt-0 h-max px-10 xl:rounded-3xl rounded-r-3xl shadow-2xl transition-all duration-500 ease-out ' + (isActive ? 'left-0' : '-left-80 xl:left-0 ')}>
+      <div className={'text-white absolute inset-10  w-72 bg-slate-900 xl:flex xl:-mt-6 mt-0 h-max px-10 xl:rounded-3xl rounded-r-3xl shadow-2xl transition-all duration-500 ease-out ' + (isActive ? 'left-0' : '-left-80 xl:left-0 ')}>
         <div className='flex flex-col justify-start items-center h-full pb-32 pt-10' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
           <div className='mb-10 flex justify-center flex-col items-center'>
               <div className='text-3xl mb-8 font-bold'> Company XYZ</div>

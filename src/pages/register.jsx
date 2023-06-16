@@ -8,7 +8,6 @@ import BASE_URL from '../baseurl';
 
 const Register = () => {
     const [formData, setFormData] = useState({
-    email: '',
     username: '',
     password: '',
     password2: '',
@@ -36,11 +35,23 @@ const handleChange = (e) => {
       [name]: value,
     }));
   };
+  const [email, setEmail] = useState('');
+const [isValidEmail, setIsValidEmail] = useState(false);
+
+const handleEmailChange = (event) => {
+  const inputEmail = event.target.value;
+  setEmail(inputEmail);
+  // Regex pattern for email validation
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  setIsValidEmail(emailRegex.test(inputEmail));
+};
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  const form = new FormData();
-    form.append('email', formData.email);
+  
+  if (isValidEmail == true) {
+    const form = new FormData();
+    form.append('email', email);
     form.append('username', formData.username);
     form.append('password', formData.password);
     form.append('password2', formData.password2);
@@ -77,6 +88,8 @@ const handleSubmit = (event) => {
         }
         console.error(error);
           });
+
+  }
    
      
     
@@ -84,6 +97,7 @@ const handleSubmit = (event) => {
     
   // Perform your form submission logic here
 };
+
 
 
 
@@ -163,26 +177,22 @@ const handleSubmit = (event) => {
               data-aos="fade" data-aos-duration="1000" data-aos-delay="150"
             
             />
-      
-      
-
-         
+            
             <input
-             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
+              className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950' 
               type="text"
               name="email"
               placeholder='Email'
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={handleEmailChange}
               required
               data-aos="fade" data-aos-duration="1000" data-aos-delay="200"
               
             />
-         
-          
-    
+            <span className='text-sm'>{isValidEmail ? (<span style={{ color: 'green' }}>Valid Email</span>) : (<span style={{ color: 'red' }}>Invalid Email</span>)}</span>
+
             <input
-             className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950 '
+              className='text-white text-center py-2 my-1 px-10 rounded-md bg-slate-950' 
               type="text"
               name="first_name"
               placeholder='First Name'
