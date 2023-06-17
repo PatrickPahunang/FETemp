@@ -61,12 +61,13 @@ useEffect(() => {
 }, [userId]);
 
 
-
-let username = userData.first_name + ' ' + userData.last_name;
+let pagefn = userData.first_name;
+let pageln = userData.last_name;
+let username = pagefn + ' ' + pageln;
 
   return (
     <div className='w-screen h-max overflow-y-scroll flex flex-col justify-center items-center bg-yellow-50 text-slate-900 overflow-x-hidden '>
-      <Navbar username={username} image={userData.profile_picture} id={userData.id} />
+      <Navbar image={userData.profile_picture} />
       
       <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20' id='dashboard content'>
         <div className='w-screen flex justify-center items-center xl:ml-60'>

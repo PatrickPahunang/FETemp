@@ -9,6 +9,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import BASE_URL from '../baseurl';
 import '../App.css' ;
 import { NavLink } from 'react-router-dom';
+import axios from 'axios'
 
 library.add(faHouse,faUser,faGear,faXmark,faBars);
 
@@ -20,8 +21,16 @@ const logout = () => {
   }
 
 
-
-const Navbar = ({ username, image , id }) => {
+const Navbar = ({ image }) => {
+  
+  const [userData, setUserData] = useState({
+    id:'',
+    email: '',
+    first_name: '',
+    last_name: '',
+    profile_picture:'',
+  });
+  
 
 const [isActive, setIsActive] = useState(false);
 const handleClick = () => {
@@ -29,7 +38,38 @@ const handleClick = () => {
 };
 
 useEffect(() => {
-}, [isActive]);
+  const fetchUserData = async () => {
+    
+
+    
+    try {
+      let userId = localStorage.getItem('user')
+      userId = userId.replace(/aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne/g, '');
+      userId = userId.replace(/P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne/g, '');
+      const response = await axios.get(BASE_URL + '/myapp/get_user/api/' + userId , {mode:'cors'}  );
+      setUserData(prevUserData => ({
+        ...prevUserData,
+        id: response.data.id,
+        first_name: response.data.first_name,
+        last_name: response.data.last_name,
+        profile_picture:response.data.profile_picture,
+      }));
+      console.log(response)
+      
+      
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+    
+    
+  };
+  
+  fetchUserData();
+  
+  
+},[isActive]);
+
+let username = userData.first_name + ' ' + userData.last_name;
 
   
 return (

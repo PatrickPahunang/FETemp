@@ -18,6 +18,7 @@ const [userData, setUserData] = useState({
   first_name: '',
   last_name: '',
   profile_picture:'',
+
 });
 
   
@@ -51,7 +52,7 @@ useEffect(() => {
         last_name: response.data.last_name,
         profile_picture:response.data.profile_picture,
       }));
-      console.log(response)
+      
       
       
     } catch (error) {
@@ -74,6 +75,7 @@ const [newImage, setNewImage] = useState(null);
 const handleImageChange = (event) => {
 
   const file = event.target.files[0];
+
 
   if (file) {
     const reader = new FileReader();
@@ -110,14 +112,14 @@ function convertImageToBase64(imageFile) {
 const handleSubmit = (event) => {
   event.preventDefault();
   //const base64Image = imageDataToBase64(newImage);
-  const params = new URLSearchParams();
-    params.append('id',userData.id);
-    params.append('first_name', userData.first_name);
-    params.append('last_name', userData.last_name);
-    convertImageToBase64(userData.profile_picture);
-    params.append('profile_picture', convertImageToBase64(userData.profile_picture));
+  const formData = new FormData();
+    formData.append('id',userData.id);
+    formData.append('first_name', userData.first_name);
+    formData.append('last_name', userData.last_name);
+    formData.append('profile_picture', newImage);
 
-    axios.patch(BASE_URL + '/myapp/update/api?'+ params)
+
+    axios.post(BASE_URL + '/myapp/update/api/',formData)
       .then(response => {
           const res = response;
           console.log(res);
@@ -164,7 +166,7 @@ const handleSubmit = (event) => {
                 <div className='flex flex-col justify-center items-center space-y-1'>
               
               <div className='flex justify-center items-center flex-col'>
-              <img src={selectedImage} alt="" className='h-32 w-32 object-cover rounded-full'  />
+              <img src={selectedImage? selectedImage : BASE_URL + userData.profile_picture} alt="" className='h-32 w-32 object-cover rounded-full'  />
               <label htmlFor="profimg" className='my-2'>
                 <span className='bg-blue-700  hover:bg-blue-900 transition duration-500 ease-in-out text-md text-yellow-50 rounded-md px-4 py-2 cursor-pointer'>Choose an Image</span>
               </label>
