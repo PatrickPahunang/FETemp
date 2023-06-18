@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import '../App.css';
 
-
+import Modal from 'react-modal'
 import { useEffect , useState   } from 'react';
 import Navbar from '../components/navbar';
 import samplesvg from '../assets/webstore.svg'
@@ -34,7 +34,7 @@ const handleChange = (e) => {
 
 
 
-let userId = localStorage.getItem('user')
+let userId = localStorage.getItem('session')
 userId = userId.replace(/aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne/g, '');
 userId = userId.replace(/P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne/g, '');
 
@@ -89,6 +89,18 @@ const handleImageChange = (event) => {
 };
 
 
+
+Modal.setAppElement('#root');
+
+const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
 function convertImageToBase64(imageFile) {
 
   return new Promise((resolve, reject) => {
@@ -125,7 +137,15 @@ const handleSubmit = (event) => {
           console.log(res);
     
           if (res.status === 200) {
-            window.location.href = '/dashboard';
+
+            openModal();
+             setTimeout(() => {
+             closeModal();
+             window.location.href = '/dashboard';
+              }, 2000);  
+        
+
+            
              
             }
           else
@@ -145,6 +165,32 @@ const handleSubmit = (event) => {
 
   return (
     <div className='w-screen h-max overflow-y-scroll flex flex-col justify-center items-center bg-yellow-50 text-slate-900 overflow-x-hidden '>
+      
+    <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+        data-aos="zoom-in" data-aos-duration="1500"
+        appElement={document.getElementById('root')}
+        style={{
+        content: {
+          width: '70%', // Set the desired width
+          height: '200px', // Set the desired height
+          margin: 'auto', // Center the modal horizontally
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: 'white',
+          fontFamily: 'Gilroy', // Set the desired background color
+        },
+  }}
+      > 
+        <div className='rounded-lg flex flex-col justify-center items-center w-full h-full xl:w-screen bg-white' data-aos="zoom-in" data-aos-duration="1000">
+          <p className='text-center text-3xl text-green-700 '>Update Successful!</p>
+          <p className='text-center text-md text-black '>Redirecting to Dashboard</p>
+        </div>
+    </Modal>
+
       <Navbar username={username} image={userData.profile_picture} id={userData.id} />
       <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20' id='dashboard content'>
         <div className='w-screen flex justify-center items-center xl:ml-60'>

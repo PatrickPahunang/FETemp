@@ -50,7 +50,7 @@ const handleSubmit = (event) => {
               localStorage.setItem('canLogin',true)
             }
             let userId = response.data.data.id;
-            localStorage.setItem('user',dec1 + userId + dec2 )
+            localStorage.setItem('session',dec1 + userId + dec2 )
             setIsError(false)
             setErrorMessage('Login Successful');
             console.log(res); 

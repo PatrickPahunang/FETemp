@@ -113,7 +113,7 @@ const handleSubmit = (event) => {
         appElement={document.getElementById('root')}
         style={{
         content: {
-          width: '600px', // Set the desired width
+          width: '70%', // Set the desired width
           height: '200px', // Set the desired height
           margin: 'auto', // Center the modal horizontally
           display: 'flex',

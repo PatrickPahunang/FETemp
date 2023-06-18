@@ -27,7 +27,7 @@ const [userData, setUserData] = useState({
 
 
 
-let userId = localStorage.getItem('user')
+let userId = localStorage.getItem('session')
 userId = userId.replace(/aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne/g, '');
 userId = userId.replace(/P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne/g, '');
 
