@@ -52,7 +52,7 @@ const handleSubmit = (event) => {
             let userId = response.data.data.id;
             localStorage.setItem('session',dec1 + userId + dec2 )
             setIsError(false)
-            setErrorMessage('Login Successful');
+            setErrorMessage('Login Approved');
             console.log(res); 
             console.log(response); 
             window.location.href = '/dashboard';

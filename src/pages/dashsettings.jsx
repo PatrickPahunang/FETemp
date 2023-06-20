@@ -5,8 +5,7 @@ import '../App.css';
 
 import { useEffect , useState } from 'react';
 import Navbar from '../components/navbar';
-import samplesvg from '../assets/webstore.svg'
-import samplesvg2 from '../assets/webstore2.svg'
+import Header from '../components/header'
 import BASE_URL from '../baseurl';
 
 
@@ -62,14 +61,7 @@ let username = userData.first_name + ' ' + userData.last_name;
   return (
     <div className='w-screen h-max overflow-y-scroll flex flex-col justify-center items-center bg-yellow-50 text-slate-900 overflow-x-hidden '>
       <Navbar username={username} image={userData.profile_picture} id={userData.id} />
-      <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20' id='dashboard content'>
-        <div className='w-screen flex justify-center items-center xl:ml-60'>
-          <img src={samplesvg2} alt='samplesvg' className='xl:h-40 h-20'/>
-        </div>
-        <div className='w-screen flex justify-end items-center xl:mr-40'>
-          <img src={samplesvg} alt='samplesvg' className='xl:h-40 h-20'/>
-        </div>
-      </div>
+      <Header />
 
       <div className='h-screen w-screen flex justify-center '>
           <div className=' xl:w-1/6 w-0 h-screen xl:h-128 bg-white shadow-2xl '>

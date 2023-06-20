@@ -5,10 +5,9 @@ import '../App.css';
 import Modal from 'react-modal'
 import { useEffect , useState   } from 'react';
 import Navbar from '../components/navbar';
-import samplesvg from '../assets/webstore.svg'
-import samplesvg2 from '../assets/webstore2.svg'
-import BASE_URL from '../baseurl';
 
+import BASE_URL from '../baseurl';
+import Header from '../components/header'
 
 
 const Dashprofile = () => {
@@ -192,14 +191,7 @@ const handleSubmit = (event) => {
     </Modal>
 
       <Navbar username={username} image={userData.profile_picture} id={userData.id} />
-      <div className='w-screen flex xl:20 h-40 bg-gray-300 xl:px-0 pl-20' id='dashboard content'>
-        <div className='w-screen flex justify-center items-center xl:ml-60'>
-          <img src={samplesvg2} alt='samplesvg' className='xl:h-40 h-20'/>
-        </div>
-        <div className='w-screen flex justify-end items-center xl:mr-40'>
-          <img src={samplesvg} alt='samplesvg' className='xl:h-40 h-20'/>
-        </div>
-      </div>
+      <Header />
 
       <div className='h-screen w-screen flex justify-center '>
           <div className=' xl:w-1/6 w-0 h-screen xl:h-128 bg-white shadow-2xl '>
@@ -211,50 +203,50 @@ const handleSubmit = (event) => {
             
                 <div className='flex flex-col justify-center items-center space-y-1'>
               
-              <div className='flex justify-center items-center flex-col'>
-              <img src={selectedImage? selectedImage : BASE_URL + userData.profile_picture} alt="" className='h-32 w-32 object-cover rounded-full'  />
-              <label htmlFor="profimg" className='my-2'>
-                <span className='bg-blue-700  hover:bg-blue-900 transition duration-500 ease-in-out text-md text-yellow-50 rounded-md px-4 py-2 cursor-pointer'>Choose an Image</span>
-              </label>
-              </div>
+                      <div className='flex justify-center items-center flex-col'>
+                        <img src={selectedImage? selectedImage : BASE_URL + userData.profile_picture} alt="" className='h-32 w-32 object-cover rounded-full'  />
+                          <label htmlFor="profimg" className='my-2'>
+                            <span className='bg-blue-700  hover:bg-blue-900 transition duration-500 ease-in-out text-md text-yellow-50 rounded-md px-4 py-2 cursor-pointer'>Choose an Image</span>
+                          </label>
+                      </div> 
+                                
+                      <input
+                        id='profimg'
+                        className='text-white text-center py-2 px-10 bg-gray-950 rounded-md hidden'
+                        type="file"
+                        onChange={handleImageChange}
+                        name="profile_picture"
+                        required
+                        data-aos="fade"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        />   
 
-              <input
-              id='profimg'
-              className='text-white text-center py-2 px-10 bg-gray-950 rounded-md hidden'
-              type="file"
-              onChange={handleImageChange}
-              name="profile_picture"
-              required
-              data-aos="fade"
-              data-aos-duration="1000"
-              data-aos-delay="200"
-              />   
-       
-            <input
-             className='text-white text-center py-2 px-10 bg-gray-950 rounded-md'
-              type="text"
-              name="first_name"
-              placeholder='First Name'
-              value={userData.first_name}
-              onChange={handleChange}
-              required
-              data-aos="fade"
-              data-aos-duration="1000"
-              data-aos-delay="200"
-            />
-            <input
-             className='text-white text-center py-2 px-10 bg-gray-950 rounded-md'
-              type="text"
-              name="last_name"
-              placeholder='Last Name'
-              value={userData.last_name}
-              onChange={handleChange}
-              required
-              data-aos="fade"
-              data-aos-duration="1000"
-              data-aos-delay="200"
-            />
-            <button onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 transition duration-500 ease-in-out text-md text-yellow-50 rounded-md px-4 py-2 cursor-pointer'>Update</button>
+                    <input
+                        className='text-white text-center py-2 px-10 bg-gray-950 rounded-md'
+                        type="text"
+                        name="first_name"
+                        placeholder='First Name'
+                        value={userData.first_name}
+                        onChange={handleChange}
+                        required
+                        data-aos="fade"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        />
+                    <input
+                        className='text-white text-center py-2 px-10 bg-gray-950 rounded-md'
+                        type="text"
+                        name="last_name"
+                        placeholder='Last Name'
+                        value={userData.last_name}
+                        onChange={handleChange}
+                        required
+                        data-aos="fade"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        />
+                    <button onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 transition duration-500 ease-in-out text-md text-yellow-50 rounded-md px-4 py-2 cursor-pointer'>Update</button>
                 </div>
                   
             </div>
