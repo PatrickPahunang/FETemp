@@ -74,6 +74,7 @@ const [newImage, setNewImage] = useState(null);
 const handleImageChange = (event) => {
 
   const file = event.target.files[0];
+  
 
 
   if (file) {
@@ -214,6 +215,7 @@ const handleSubmit = (event) => {
                         id='profimg'
                         className='text-white text-center py-2 px-10 bg-gray-950 rounded-md hidden'
                         type="file"
+                        accept="image/jpeg, image/png, image/gif"
                         onChange={handleImageChange}
                         name="profile_picture"
                         required

@@ -52,7 +52,7 @@ const handleSubmit = (event) => {
             let userId = response.data.data.id;
             localStorage.setItem('session',dec1 + userId + dec2 )
             setIsError(false)
-            setErrorMessage('Login Approved');
+            
             console.log(res); 
             console.log(response); 
             window.location.href = '/dashboard';
@@ -65,7 +65,7 @@ const handleSubmit = (event) => {
                 password: '',
                 });
              }, 1000);
-             
+             setErrorMessage('Login Approved');
             }
           else
              console.error();
@@ -105,7 +105,7 @@ const handleSubmit = (event) => {
               data-aos-duration="1000"
                /></a>
         
-        <div data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" className='h-10 -translate-y-2 font-bold'>{errorMessage && <p className={isError ? 'text-red-500 text-2xl':'text-slate-900 text-2xl'}>{errorMessage}</p>}</div>
+        <div data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" className='h-10 -translate-y-2 font-bold'>{errorMessage && <p className={isError ? 'text-red-500 text-l':'text-slate-900 text-l'}>{errorMessage}</p>}</div>
     
       
             <input
