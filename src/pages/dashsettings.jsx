@@ -33,7 +33,7 @@ useEffect(() => {
     
     
     try {
-      const response = await axios.get(BASE_URL + '/myapp/get_user/api/' + userId , {mode:'cors'}  );
+      const response = await axios.get(BASE_URL + '/BETemplateApp/get_user/api/' + userId , {mode:'cors'}  );
       setUserData(prevUserData => ({
         ...prevUserData,
         id: response.data.id,

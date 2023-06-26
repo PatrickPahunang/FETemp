@@ -43,7 +43,7 @@ useEffect(() => {
     
     
     try {
-      const response = await axios.get(BASE_URL + '/myapp/get_user/api/' + userId , {mode:'cors'}  );
+      const response = await axios.get(BASE_URL + '/BETemplateApp/get_user/api/' + userId , {mode:'cors'}  );
       setUserData(prevUserData => ({
         ...prevUserData,
         id: response.data.id,
@@ -101,21 +101,7 @@ const [isOpen, setIsOpen] = useState(false);
     setIsOpen(false);
   };
 
-function convertImageToBase64(imageFile) {
 
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64Image = reader.result.split(',')[1];
-      resolve(base64Image);
-    };
-    reader.onerror = () => {
-      reject(new Error('Error occurred while reading the image.'));
-    };
-    reader.readAsDataURL(imageFile);
-  });
-
-}
 
 
 //let dec1 = 'aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne'
@@ -131,7 +117,7 @@ const handleSubmit = (event) => {
     formData.append('profile_picture', newImage);
 
 
-    axios.post(BASE_URL + '/myapp/update/api/',formData)
+    axios.post(BASE_URL + '/BETemplateApp/update/api/',formData)
       .then(response => {
           const res = response;
           console.log(res);

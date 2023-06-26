@@ -37,7 +37,7 @@ const handleSubmit = (event) => {
     let dec2 = 'P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne'
 
    
-    axios.post(BASE_URL + '/myapp/login/api/',form)
+    axios.post(BASE_URL + '/BETemplateApp/login/api/',form)
       .then(response => {
           const res = response;
           console.log(res.token)

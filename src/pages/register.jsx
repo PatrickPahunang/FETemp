@@ -49,7 +49,7 @@ const handleEmailChange = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault();
   
-  if (isValidEmail == true) {
+  if (isValidEmail === true) {
     const form = new FormData();
     form.append('email', email);
     form.append('username', formData.username);
@@ -58,7 +58,7 @@ const handleSubmit = (event) => {
     form.append('first_name', formData.first_name);
     form.append('last_name', formData.last_name);
 
-    axios.post(BASE_URL + '/myapp/users/create/',form)
+    axios.post(BASE_URL + '/BETemplateApp/users/create/',form)
       .then(response => {
         // Handle the response data
         console.log(response.data);
