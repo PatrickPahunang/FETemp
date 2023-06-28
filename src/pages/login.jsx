@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import axios from 'axios';
 import logo from '../logo.svg'
 import BASE_URL from '../baseurl';
-
+import BASE_APP_URL from '../baseappurl';
 
 
 
@@ -37,7 +37,7 @@ const handleSubmit = (event) => {
     let dec2 = 'P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne'
 
    
-    axios.post(BASE_URL + '/BETemplateApp/login/api/',form)
+    axios.post(BASE_URL + BASE_APP_URL + '/login/api/',form)
       .then(response => {
           const res = response;
           console.log(res.token)

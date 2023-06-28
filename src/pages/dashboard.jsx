@@ -6,6 +6,7 @@ import '../App.css';
 import { useEffect , useState } from 'react';
 import Navbar from '../components/navbar';
 import BASE_URL from '../baseurl';
+import BASE_APP_URL from '../baseappurl'
 import Header from '../components/header'
 
 const Dashboard = () => {
@@ -35,7 +36,7 @@ useEffect(() => {
     
     
     try {
-      const response = await axios.get(BASE_URL + '/BETemplateApp/get_user/api/' + userId , {mode:'cors'}  );
+      const response = await axios.get(BASE_URL + BASE_APP_URL+ '/get_user/api/' + userId , {mode:'cors'}  );
       setUserData(prevUserData => ({
         ...prevUserData,
         id: response.data.id,

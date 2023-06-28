@@ -5,7 +5,7 @@ import '../App.css';
 import Modal from 'react-modal'
 import { useEffect , useState   } from 'react';
 import Navbar from '../components/navbar';
-
+import BASE_APP_URL from '../baseappurl';
 import BASE_URL from '../baseurl';
 import Header from '../components/header'
 
@@ -43,8 +43,8 @@ useEffect(() => {
     
     
     try {
-      const response = await axios.get(BASE_URL + '/BETemplateApp/get_user/api/' + userId , {mode:'cors'}  );
-      setUserData(prevUserData => ({
+      const response = await axios.get(BASE_URL + BASE_APP_URL + '/get_user/api/' + userId , {mode:'cors'}  );
+      setUserData(prevUserData => ({ 
         ...prevUserData,
         id: response.data.id,
         first_name: response.data.first_name,
@@ -117,7 +117,7 @@ const handleSubmit = (event) => {
     formData.append('profile_picture', newImage);
 
 
-    axios.post(BASE_URL + '/BETemplateApp/update/api/',formData)
+    axios.post(BASE_URL + BASE_APP_URL + '/update/api/',formData)
       .then(response => {
           const res = response;
           console.log(res);

@@ -7,6 +7,7 @@ import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import BASE_URL from '../baseurl';
+import BASE_APP_URL from '../baseappurl'
 import '../App.css' ;
 import { NavLink } from 'react-router-dom';
 import axios from 'axios'
@@ -46,7 +47,7 @@ useEffect(() => {
       let userId = localStorage.getItem('session')
       userId = userId.replace(/aAsdaK2lsladAad2das1AoxciIZiPZPozizyYZTGAbasdhGAgsne/g, '');
       userId = userId.replace(/P1pap2p45aod9f8AzZJNnxcdas1AoxciaAsdaK2lsladIZiPZPozizyYZTGAbasdhGAgsne/g, '');
-      const response = await axios.get(BASE_URL + '/myapp/get_user/api/' + userId , {mode:'cors'}  );
+      const response = await axios.get(BASE_URL + BASE_APP_URL +'/get_user/api/' + userId , {mode:'cors'}  );
       setUserData(prevUserData => ({
         ...prevUserData,
         id: response.data.id,
