@@ -36,7 +36,7 @@ useEffect(() => {
     
     
     try {
-      const response = await axios.get(BASE_URL + BASE_APP_URL+ '/get_user/api/' + userId , {mode:'cors'}  );
+      const response = await axios.get(BASE_URL + BASE_APP_URL+ '/get_user/api/' + userId   );
       setUserData(prevUserData => ({
         ...prevUserData,
         id: response.data.id,
